@@ -1,4 +1,4 @@
-# This is an advance website testing code which go through the entire website for broken links, href, img src and other URLs too.
+# This is an advance website testing code which go through the entire website for broken links(here it only check if the status is equal to 200, if any status other than 200 it will consider it as broken), href, img src and other URLs too.
 # It will check for iFrames, Pop-Ups & Google Tag Manager layer using Selenium driver function along with Javascript.
 # Just enter the testing website URL in "start_url".
 # It takes a starting URL as input and iteratively visits links on the website, printing URLs, href links, img src, iFrames, Google Tag Manager layer, and Pop-Up links in the terminal window. 
