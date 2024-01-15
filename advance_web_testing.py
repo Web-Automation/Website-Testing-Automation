@@ -42,9 +42,11 @@ class Adv_Web_Testing:
 
         while try_count < max_tries:
             try:
+                # Send a HEAD request to the specified URL with a timeout constraint
                 response = requests.head(url, timeout=timeout)
                 status_code = response.status_code
                 return status_code
+            # Catches an exception related to HTTP requests, providing access to the error details through the variable 'e'    
             except requests.RequestException as e:
                 print(f"Error checking status for {url}: {e}")
                 if "Read timed out" in str(e):
@@ -88,6 +90,7 @@ class Adv_Web_Testing:
 
             try:
                 driver.get(url)
+            # Catches an exception related to HTTP requests, providing access to the error details through the variable 'e'
             except Exception as e:
                 print(f"Error accessing URL: {url}. Skipping...")
                 driver.quit()
@@ -117,6 +120,7 @@ class Adv_Web_Testing:
                         
                         # Add the href to the stack for further exploration
                         stack.append((href, depth + 1))
+                # Catches an exception indicating that a referenced element is no longer present in the DOM
                 except StaleElementReferenceException:
                     print("Stale Element Exception occurred. Skipping this element.")
                     continue
@@ -142,6 +146,7 @@ class Adv_Web_Testing:
                             
                         # Add the img_src to the set of visited image sources
                         self.visited_img_src.add(img_src)
+                # Catches an exception indicating that a referenced element is no longer present in the DOM
                 except StaleElementReferenceException:
                     print("Stale Element Exception occurred. Skipping this element.")
                     continue
@@ -162,10 +167,11 @@ class Adv_Web_Testing:
                         else:
                             print("Error: Unable to open the popup window.")
                             self.broken_popup_urls.add(url)
+                    # Catches an exception related to HTTP requests, providing access to the error details through the variable 'e'
                     except Exception as e:
                         print(f"Error while handling iframe or popup: {e}")
                         self.broken_iframe_urls.add(url)
-
+            # Catches an exception indicating that a referenced element is no longer present in the DOM
             except StaleElementReferenceException:
                 print("Stale Element Exception occurred. Skipping iframe handling.")
 
@@ -177,6 +183,7 @@ class Adv_Web_Testing:
                     self.google_tag_manager_urls.add(url)
             except StaleElementReferenceException:
                 print("Stale Element Exception occurred while checking Google Tag Manager's dataLayer.")
+            # Catches an exception related to HTTP requests, providing access to the error details through the variable 'e'
             except Exception as e:
                 print(f"Error checking Google Tag Manager's dataLayer: {e}")
 
