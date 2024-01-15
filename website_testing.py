@@ -1,4 +1,4 @@
-# Use this code to run the entire website for broken links, href, img src and other URLs too.
+# Use this code to run the entire website for broken links(here it only check if the status is equal to 200, if any status other than 200 it will consider it as broken), href, img src and other URLs too.
 # Just enter the testing website URL in "start_url":
 # The code will print all the URLs, href links & img src in terminal window while iterating through code.
 # After the execution of this code all the broken links, href, img src will print in the terminal as well.
