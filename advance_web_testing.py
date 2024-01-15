@@ -18,7 +18,7 @@ import csv
 # The Adv_Web_Testing class is designed for advanced website testing, checking for broken links, href, img src, iFrames, Pop-Ups, and Google Tag Manager layer using Selenium WebDriver functions along with JavaScript.
 class Adv_Web_Testing:
     def __init__(self):
-        # Initialize sets to store visited links, hrefs, img_src along with broken links, 
+    # Initialize sets to store visited links, hrefs, img_src, and sets for broken links, Google Tag Manager URLs, iframe URLs, popup URLs, and URLs with read timeouts
         self.visited_links = set()
         self.visited_href = set()
         self.visited_img_src = set()
@@ -29,7 +29,8 @@ class Adv_Web_Testing:
         self.broken_popup_urls = set()
         self.read_timeout_urls = set()
 
-    # Check if two URLs belong to the same domain
+# This function checks that URLs that're navigating by this program belongs to same domain, it doesn't navigate to other domain which doesn't belong to the parent domain:
+# Example URL: "testing.com"(suppose parent domain) then all URLs i.e. test.testing.com, dev.testing.com, uat.testing.com etc..
     def is_same_domain(self, url1, url2):
         domain1 = urlparse(url1).netloc.split('.')[-2:]
         domain2 = urlparse(url2).netloc.split('.')[-2:]
