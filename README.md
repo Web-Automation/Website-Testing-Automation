@@ -1,5 +1,5 @@
 # Website-Testing-Automation
-- This automated code tests the website for broken URLs (here it only check if the status is equal to 200 or not, if any other status then it consider it as broken) and much more.
+- This automated code tests the website for broken URLs (here it only check if the status is equal to 200, if any status other than 200 it will consider it as broken) and much more.
 - This repository contains two automation scripts for website testing one tests only the broken parent domain URLs i.e. href links & img src links i.e. "website_testing.py" and the other one is advance version i.e. "advance_web_testing" that tests for broken URLs i.e. href links & img src links across the entire website whether it belongs to the parent domain or other domain, checks for Google Tag Manager layer, checks that iFrame works properly & Pop-up URLs open properly or not using Javascript.
 
 **Normal Website Testing**
